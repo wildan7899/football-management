@@ -1,0 +1,117 @@
+@startuml Football_Team_Management_System_Class_Diagram
+skinparam classAttributeIconSize 0
+skinparam monochrome false
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam defaultFontName "SansSerif"
+skinparam class {
+    BackgroundColor #FFFFFF
+    ArrowColor #1E293B
+    BorderColor #334155
+    HeaderBackgroundColor #F1F5F9
+}
+
+title UML Class Diagram - Football Team Management System (Java OOP)
+
+package "interfaces" {
+    interface Trainable <<interface>> {
+        + train() : void
+    }
+
+    interface Playable <<interface>> {
+        + playMatch() : void
+    }
+}
+
+package "model" {
+    abstract class Player <<abstract>> {
+        - name : String
+        - jerseyNumber : int
+        - age : int
+        - position : String
+        --
+        + Player(name : String, jerseyNumber : int, age : int, position : String)
+        + Player(name : String, jerseyNumber : int, age : int)
+        + getName() : String
+        + setName(name : String) : void
+        + getJerseyNumber() : int
+        + setJerseyNumber(jerseyNumber : int) : void
+        + getAge() : int
+        + setAge(age : int) : void
+        + getPosition() : String
+        + setPosition(position : String) : void
+        + {abstract} performRole() : void
+        + displayInfo() : void
+    }
+
+    class Goalkeeper {
+        + Goalkeeper(name : String, jerseyNumber : int, age : int)
+        + performRole() : void
+        + train() : void
+        + playMatch() : void
+    }
+
+    class Defender {
+        + Defender(name : String, jerseyNumber : int, age : int)
+        + performRole() : void
+        + train() : void
+        + playMatch() : void
+    }
+
+    class Midfielder {
+        + Midfielder(name : String, jerseyNumber : int, age : int)
+        + performRole() : void
+        + train() : void
+        + playMatch() : void
+    }
+
+    class Forward {
+        + Forward(name : String, jerseyNumber : int, age : int)
+        + performRole() : void
+        + train() : void
+        + playMatch() : void
+    }
+}
+
+package "team" {
+    class Team {
+        - teamName : String
+        - players : ArrayList<Player>
+        --
+        + Team(teamName : String)
+        + getTeamName() : String
+        + setTeamName(teamName : String) : void
+        + getPlayers() : ArrayList<Player>
+        + addPlayer(player : Player) : void
+        + displayAllPlayers() : void
+        + performAllRoles() : void
+        + runTrainingSession() : void
+        + simulateMatch(opponentTeam : String) : void
+        + simulateMatch() : void
+    }
+}
+
+package "main" {
+    class Main {
+        + {static} main(args : String[]) : void
+    }
+}
+
+' Realization (Interface Implementation)
+Trainable <|.. Player : implements
+Playable <|.. Player : implements
+
+' Inheritance (Generalization)
+Player <|-- Goalkeeper : extends
+Player <|-- Defender : extends
+Player <|-- Midfielder : extends
+Player <|-- Forward : extends
+
+' Aggregation (Team has Players)
+Team "1" o--> "0..*" Player : manages >
+
+' Dependency (Main uses Team and Player)
+Main ..> Team : uses
+Main ..> Player : uses
+
+@enduml

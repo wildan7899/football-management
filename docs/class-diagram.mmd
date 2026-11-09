@@ -1,0 +1,89 @@
+classDiagram
+    direction TB
+
+    class Trainable {
+        <<interface>>
+        +train() void
+    }
+
+    class Playable {
+        <<interface>>
+        +playMatch() void
+    }
+
+    class Player {
+        <<abstract>>
+        -String name
+        -int jerseyNumber
+        -int age
+        -String position
+        +Player(String name, int jerseyNumber, int age, String position)
+        +Player(String name, int jerseyNumber, int age)
+        +getName() String
+        +setName(String name) void
+        +getJerseyNumber() int
+        +setJerseyNumber(int jerseyNumber) void
+        +getAge() int
+        +setAge(int age) void
+        +getPosition() String
+        +setPosition(String position) void
+        +performRole()* void
+        +displayInfo() void
+    }
+
+    class Goalkeeper {
+        +Goalkeeper(String name, int jerseyNumber, int age)
+        +performRole() void
+        +train() void
+        +playMatch() void
+    }
+
+    class Defender {
+        +Defender(String name, int jerseyNumber, int age)
+        +performRole() void
+        +train() void
+        +playMatch() void
+    }
+
+    class Midfielder {
+        +Midfielder(String name, int jerseyNumber, int age)
+        +performRole() void
+        +train() void
+        +playMatch() void
+    }
+
+    class Forward {
+        +Forward(String name, int jerseyNumber, int age)
+        +performRole() void
+        +train() void
+        +playMatch() void
+    }
+
+    class Team {
+        -String teamName
+        -ArrayList~Player~ players
+        +Team(String teamName)
+        +getTeamName() String
+        +setTeamName(String teamName) void
+        +getPlayers() ArrayList~Player~
+        +addPlayer(Player player) void
+        +displayAllPlayers() void
+        +performAllRoles() void
+        +runTrainingSession() void
+        +simulateMatch(String opponentTeam) void
+        +simulateMatch() void
+    }
+
+    class Main {
+        +main(String[] args)$ void
+    }
+
+    Trainable <|.. Player : implements
+    Playable <|.. Player : implements
+    Player <|-- Goalkeeper : extends
+    Player <|-- Defender : extends
+    Player <|-- Midfielder : extends
+    Player <|-- Forward : extends
+    Team "1" o--> "0..*" Player : manages
+    Main ..> Team : uses
+    Main ..> Player : uses

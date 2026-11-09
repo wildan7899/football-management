@@ -1,4 +1,4 @@
-# Football Team Management System (Java OOP)
+# Football Team Management System
 
 Sistem Manajemen Tim Sepak Bola berbasis **Java Object-Oriented Programming (OOP)** yang dirancang untuk memenuhi tugas mata kuliah **Pemrograman Berorientasi Objek (PBO)**.
 
@@ -101,7 +101,7 @@ football-team-management-oop/
 
 ## 5. UML Class Diagram
 
-### Visualisasi Diagram (PNG / SVG)
+### Visualisasi Diagram
 
 ![UML Class Diagram](docs/class-diagram.png)
 

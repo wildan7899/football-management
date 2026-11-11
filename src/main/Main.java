@@ -15,7 +15,7 @@ public class Main {
     private static final Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Team team = new Team("Garuda Muda FC");
+        Team team = new Team("Real Madrid CF");
         loadDefaultPlayers(team);
 
         boolean running = true;
@@ -70,7 +70,7 @@ public class Main {
         }
     }
 
-    // Membersihkan layar terminal (CLS di Windows / ANSI di Linux & macOS)
+    // Membersihkan layar terminal
     private static void clearScreen() {
         try {
             if (System.getProperty("os.name").toLowerCase().contains("win")) {
@@ -99,12 +99,12 @@ public class Main {
         System.out.printf("| Jumlah Pemain : %-37s |%n", team.getPlayers().size() + " Orang");
         System.out.println("+-------------------------------------------------------+");
         System.out.println("| [1] Lihat Daftar Skuad                                |");
-        System.out.println("| [2] Tambah Pemain Baru (Input Sendiri)                |");
-        System.out.println("| [3] Ubah Data Pemain (Edit via Setter)                |");
+        System.out.println("| [2] Tambah Pemain Baru                                |");
+        System.out.println("| [3] Ubah Data Pemain                                  |");
         System.out.println("| [4] Hapus Pemain dari Skuad                           |");
-        System.out.println("| [5] Lihat Peran Posisi Pemain (Polymorphism)          |");
-        System.out.println("| [6] Jalankan Sesi Latihan Tim (Interface Trainable)   |");
-        System.out.println("| [7] Simulasi Pertandingan (Interface Playable)        |");
+        System.out.println("| [5] Lihat Peran Posisi Pemain                         |");
+        System.out.println("| [6] Jalankan Sesi Latihan Tim                         |");
+        System.out.println("| [7] Simulasi Pertandingan                             |");
         System.out.println("| [8] Ganti Nama Tim                                    |");
         System.out.println("| [0] Keluar Program                                    |");
         System.out.println("+=======================================================+");
@@ -271,9 +271,9 @@ public class Main {
 
     // Data pemain awal agar program langsung siap dicoba
     private static void loadDefaultPlayers(Team team) {
-        team.addPlayer(new Goalkeeper("Nadeo Argawinata", 1, 27));
-        team.addPlayer(new Defender("Jay Idzes", 4, 24));
-        team.addPlayer(new Midfielder("Marselino Ferdinan", 7, 20));
-        team.addPlayer(new Forward("Rafael Struick", 9, 21));
+        team.addPlayer(new Goalkeeper("Courtois", 1, 33));
+        team.addPlayer(new Defender("Dean Huijsen", 4, 24));
+        team.addPlayer(new Midfielder("Bernardo Silva", 20, 29));
+        team.addPlayer(new Forward("Kylian Mbappe", 10, 27));
     }
 }
